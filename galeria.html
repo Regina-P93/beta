@@ -1,0 +1,184 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+   
+    <title>Fundamentos Web</title>
+
+    <style> 
+    /*Uso css en bloque*/
+    /* Solo uso este modelo dentro de la etiqueta style porque uso css*/
+        body{ 
+             margin: 0;
+             font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        }
+        /*Selectores multiples*/
+        header, footer {
+            padding: 16px;
+            color: #eee;
+            background-color: #248;
+            text-align: center;
+         
+        }
+
+        /* Selectores especificos (padre e hijo) */
+        nav ul {
+            list-style: none;
+            background-color: #36c;
+            padding: 0;
+            margin: 0;
+        }
+
+        nav a {
+            color: #eee ;
+            text-decoration: none;
+            font-size: 20px;
+        
+
+        }
+        nav li {
+            display: inline-block;
+            padding: 8px;
+        }
+
+        /* Pseudo clase  */
+		nav li:hover{
+			background-color: rgba(51,51,51,.5); /*0:min; 255:max;*/
+		}
+        
+        /* Selector de clase (.class) */
+        .example {
+                  list-style: none;
+                  margin: 8px;
+                  padding: 16px;
+                  background-color: #ccc;   
+        }
+        
+        /* Selector ID (#id) */
+        #footer a {
+                    color: #eee;
+                    text-decoration: none;
+                    font-weight: bold;
+        }
+
+        /* Organizacion texto e imagenes */
+        p {
+           overflow: hidden;
+           padding: 16px;
+        }
+        p img {
+               float: left;
+               margin-right: 16px;
+        }
+
+
+
+    
+    </style> 
+</head>
+<body>
+    <header id="header">
+        <h1>Fundamentos Web </h1>
+        <p> &lt;html> &amp; {css} </p>
+        <div id = "nav"> <!--El ID es como el DNI de una persona-->
+            <!-- usamos una lista desordenada para que pueda navegar por donde quiera y no en orden-->
+            <ul>
+                <li> <!--ruta interna / relativa-->
+                     <a href="index.html">Inicio</a><!-- creamos un hipervinculo con la a-->
+                </li>
+                <li> <!-- Ruta Ancla o Marcador  -->
+                    <a href="#">Galeria</a>
+                </li>
+                <li> <!--Ruta Ancla / Marcador (#id)-->
+                    <a href="contacto.html">Contacto</a>
+                </li>
+                <li> <!-- Ruta Externa o Absoluta // el target abre en otra ventana/pestaña-->
+                    <a href="https://github.com/c215714n/EducacionIT/tree/html-m-10hs
+                    " target="_blank">github</a>
+                </li>
+            </ul>
+    </header>
+   
+    <main id = "main">
+        <h2> Reglas de nomenclatura </h2>
+        <ul>
+            <li> <strong> Evitar el uso de espacios </strong> ya que dicho caracter sera reemplazado por el <em>conjunto %20</em> 
+                 impidiendo al navegador encontrar el mismo, por ejemplo si tenemos un archivo <em>"foto 01.jpg</em> sera interpretado 
+                 como <em>foto%2001.jpg</em>, por lo que no va a encontrar la imagen. <strong>Se recomienda usar _ o - en lugar
+                 de los espacios</strong>
+            </li>
+            <li><strong> Utilizar nombres descriptivos</strong>
+            </li>
+            <li><strong>Implementar solamente minusculas en los nombres</strong> debido a que los servidores diferencian nombres como
+                <em>Background.jpg</em> de <em>background.jpg</em>. <strong>Con esta practica reducimos el margen de error.</strong>
+            </li>
+        </ul>
+        <div class="example" style = "text-align: center;"> <!-- Define una clase. Clase equivalente a nacionalidad-->
+            <h2>Organizando Imagenes (Linea-Bloque)</h2>
+            <img style="width:300px;"
+                 src="imagen/cordoba.jpg" 
+                 alt="JJBA the Fool" /> <!--JJBA the Foll es el texto que aparece cuando no se puede mostrar la imagen, aparece 
+            el iconito de la imagen rota y el texto. NO HAY QUE QUITARLO porq le quita accesibilidad-->
+            <img style="width:300px;"
+            src="imagen/escalera.jpg" 
+            alt="JJBA the Fool" />         
+         </div> 
+        <h2>Estructura Semantica</h2>
+        <ul class= "example">
+            <!-- Estas etiquetas se agregan con HTML5-->
+            <li>
+                <strong>HEADER:</strong> Cabecera de pagina o contenido introductorio, contiene los titulos principales, asi como 
+                tambien, ocacionalmente alguna galeria a modo de presentacion e incluso la navegacion.
+            </li>
+            <LI>
+                <strong>NAV:</strong> Navegacion principal. Debe contener los links mas importantes del sitio y ningun elemento externo
+                a este deberia encontrarse aqui. 
+            </LI>
+            <li>
+                <strong>MAIN:</strong> Contenido principal, representa la informacion mas importante dentro del cuerpo de la pagina con
+                relacion al contenido. Este a la vez puede estar segmentado en partes.
+            </li>
+            <li>
+                <strong>ARTICLE: </strong> Contenido independiente o articulo. Representa un elemento individual. Es un elemento que 
+                funciona tanto dentro como fuera de la pagina debido a que posee su propia estructura y es autoconclusivo.
+            </li>
+            <li>
+                <strong>SECTION: </strong> Contenido contextualizado o seccion. Es un elemento que DEPENDE de otros dentro de la pagina
+                para su total comprension y por lo tanto no funciona fuera de esta.
+            </li>
+            <li>
+                <strong>ASIDE:</strong> Contenido lateral o tangencial, es un elemento que se relaciona indirectamente con sus hermanos
+                y se suele implementar para sugerencias o publicidad.
+                <!-- Hermano se le dice porque esta al mismo nivel que otra etiqueta. Estan todas dentro del mismo contenedor-->
+            </li>
+            <li>
+                <strong>FOOTER:</strong> Pie de pagina o contenido final. Contiene la informacion de copyright, informacion o datos de 
+                contacto, formulario de contacto, redes sociales e incluso puede presentar un mapa del sitio. 
+            </li>
+        </ul>
+
+        <h2>Trabajando con texto e imagenes</h2>
+        <p>
+            <img style="width: 200px;" src="Imagen/navidad.jpg" alt="Armado Arbol de Navidad">
+            Mis bebecitos en navidad
+        </p>
+        <p>
+            <img style="width: 200px;" src="Imagen/paseo.jpg" alt="Paseos por la costa">
+            Mis bebecitos paseando por costa alta
+        </p>
+        <p>
+            <img style="width: 200px;" src="Imagen/pileta.jpg" alt="Matu en la pileta">
+            Matu un dia de calor
+        </p>
+    </main>
+    
+    <footer id = "footer">
+        <p>
+            &copy; Todos los derechos reservados 
+            <a href = "#"> Cristian Racedo </a>
+        </p> 
+    </footer>
+</body>
+</html>
